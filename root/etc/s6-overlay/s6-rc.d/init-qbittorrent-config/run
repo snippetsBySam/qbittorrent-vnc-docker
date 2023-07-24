@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+# make our folder
+mkdir -p /config/qBittorrent
+mkdir -p ~/openbox
+
+# copy default config
+if [[ ! -f /config/qBittorrent/qBittorrent.conf ]]; then
+    cp /defaults/qBittorrent.conf /config/qBittorrent/qBittorrent.conf
+    cp /defaults/autostart ~/openbox/autostart
+    cp /defaults/menu.xml ~/openbox/menu.xml
+fi
+
+# chown download directory if currently not set to abc
+if [[ -d /downloads ]]; then
+    if [[ "$(stat -c '%U' /downloads)" != "abc" ]]; then
+        lsiown -R abc:abc /downloads
+    fi
+fi
+
+# permissions
+lsiown -R abc:abc \
+    /config
