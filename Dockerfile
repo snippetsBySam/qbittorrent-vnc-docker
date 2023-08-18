@@ -11,7 +11,7 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 LABEL maintainer="snippetsbysam"
 
 # environment settings
-ARG UNRAR_VERSION=6.2.8
+ARG UNRAR_VERSION=6.2.10
 ENV HOME="/config" \
   TITLE="qBittorrent" \
   XDG_CONFIG_HOME="/config" \
