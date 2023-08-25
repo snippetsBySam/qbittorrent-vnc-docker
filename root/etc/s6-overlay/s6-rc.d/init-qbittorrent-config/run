@@ -3,11 +3,15 @@
 
 # make our folder
 mkdir -p /config/qBittorrent
-mkdir -p ~/openbox
 
 # copy default config
 if [[ ! -f /config/qBittorrent/qBittorrent.conf ]]; then
     cp /defaults/qBittorrent.conf /config/qBittorrent/qBittorrent.conf
+fi
+
+# copy openbox config
+if [[ ! -d ~/openbox ]]; then
+    mkdir -p ~/openbox
     cp /defaults/autostart ~/openbox/autostart
     cp /defaults/menu.xml ~/openbox/menu.xml
 fi
